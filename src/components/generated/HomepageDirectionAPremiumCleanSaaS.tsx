@@ -20,8 +20,8 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const displayPrice = billing === "annual" ? "$499.90" : "$49.99";
   const displayPeriod = billing === "annual" ? "/year" : "/month";
-  const billingNote = billing === "annual" ? "7-day free trial - yearly billing includes 2 months free" : "7-day free trial - monthly billing";
-  const advancedBillingNote = billing === "annual" ? "7-day free trial - yearly billing includes 2 months free - $299 one-time setup - white-glove onboarding" : "7-day free trial - $299 one-time setup - white-glove onboarding";
+  const billingNote = billing === "annual" ? "14-day free trial - yearly billing includes 2 months free" : "14-day free trial - monthly billing";
+  const advancedBillingNote = billing === "annual" ? "14-day free trial - yearly billing includes 2 months free - $299 one-time setup - white-glove onboarding" : "14-day free trial - $299 one-time setup - white-glove onboarding";
   return <div className="min-h-screen w-full bg-[#FAFAF7] text-[#0E1116]">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-6">
         <img className="h-10 w-auto object-contain" src="https://storage.googleapis.com/storage.magicpath.ai/component-assets/413863639787921408/415333103943446528/cc7cbfdae14a23b26f2da7b04f45028c60b97f5f22767597aea446dc5226a510.jpg" alt="FollowUpHub" />
@@ -284,7 +284,7 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
           <div className="relative mx-auto max-w-7xl text-center">
             <p className="font-bold text-[#1F5FFF]">Pricing</p>
             <h2 className="mx-auto mt-3 max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">Start with the system agents usually have to build themselves.</h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#5B6470]">Both plans include a 7-day free trial. Basic gives you the Complete Agent System. Advanced adds the full AI engine, 6-month Smart Nurture AI, and white-glove setup.</p>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#5B6470]">Both plans include a 14-day free trial. Basic gives you the Complete Agent System. Advanced adds the full AI engine, 6-month Smart Nurture AI, and white-glove setup.</p>
             <div className="mt-8 inline-flex rounded-full border border-[#DCE4FF] bg-white p-1 shadow-[0_14px_45px_-36px_rgba(31,95,255,0.7)]">
               <button onClick={() => setBilling("monthly")} className={`rounded-full px-5 py-2 text-sm font-bold transition active:scale-[0.98] ${billing === "monthly" ? "bg-[#1F5FFF] text-white" : "text-[#5B6470] hover:text-[#1F5FFF]"}`}>Monthly</button>
               <button onClick={() => setBilling("annual")} className={`rounded-full px-5 py-2 text-sm font-bold transition active:scale-[0.98] ${billing === "annual" ? "bg-[#1F5FFF] text-white" : "text-[#5B6470] hover:text-[#1F5FFF]"}`}>Yearly - 2 months free</button>
@@ -385,7 +385,7 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
                 </h2>
                 <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-white/66">Stop letting leads die between capture and conversation. Plug into the system built to keep them moving - automatically.</p>
                 <button className="mt-10 rounded-xl bg-[#1F5FFF] px-8 py-5 font-bold text-white shadow-[0_16px_46px_rgba(31,95,255,0.34)] transition hover:bg-[#1749CC] active:scale-[0.98]">Get Started <span className="ml-2">-&gt;</span></button>
-                <p className="mt-6 text-sm font-semibold text-white/40">7-day free trial - Live on day one</p>
+                <p className="mt-6 text-sm font-semibold text-white/40">14-day free trial - Live on day one</p>
               </div>
             </div>
           </div>
