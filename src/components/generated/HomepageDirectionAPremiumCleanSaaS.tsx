@@ -34,7 +34,10 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
         <div className="hidden items-center gap-8 text-sm font-medium text-[#5B6470] md:flex">
           <span>The Gap</span><span>How It Works</span><span>Features</span><span>Pricing</span>
         </div>
-        <a href={paymentLinks.basicMonthly} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#1F5FFF] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1749CC] active:scale-[0.98]">Get Started</a>
+        <div className="flex items-center gap-3">
+          <a href="https://app.followuphub.ai/" target="_blank" rel="noopener noreferrer" className="rounded-full px-5 py-3 text-sm font-semibold text-[#0E1116] transition hover:text-[#1F5FFF]">Login</a>
+          <a href={paymentLinks.basicMonthly} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#1F5FFF] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1749CC] active:scale-[0.98]">Get Started</a>
+        </div>
       </nav>
 
       <header className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-24 pt-10 lg:grid-cols-[0.92fr_1.08fr]">
