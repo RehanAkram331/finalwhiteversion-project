@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const proofPoints = [["Under 60 seconds", "Call, text, and email response can begin within the first minute."], ["3 coordinated agents", "AI Call, AI SMS, and AI Email work from the same lead context."], ["6-month nurture", "Quiet leads keep receiving local, personalized follow-up."], ["Live on day one", "The Home Evaluation system, funnel, CRM, and booking flow are pre-built."]];
 const problemCards = [["New leads cool off fast", "A buyer or seller has the most intent right after they opt in. If you are in a showing, on the road, or with a client, that window can close before you reply."], ["Most CRMs still leave the work to you", "A blank dashboard stores the lead, but it does not call, text, email, qualify, remind, nurture, or book the appointment."], ["Follow-up gets scattered", "CRM in one tab, SMS in another, email somewhere else, and calendar booking in a different tool. Real estate teams lose momentum when nothing works together."], ["Not-ready leads disappear", "Leads that do not convert in the first 48 hours often sit untouched. Months later, they can be buying or selling with someone else."], ["Agents are busy when leads arrive", "You are showing homes, negotiating offers, and closing deals. Follow-up should not depend on you being available at the exact second a lead comes in."], ["The system never gets built", "Most agents know they need better automations. The hard part is building the funnel, messages, pipeline, reminders, routing, and nurture from scratch."]];
 const steps = [["Capture", "A lead opts in through a pre-built funnel or form. FollowUpHub opens the pipeline record and queues the right response sequence immediately."], ["Respond", "AI Call, AI SMS, and AI Email can start within 60 seconds, using the context the lead already gave you."], ["Nurture", "If the lead goes quiet, the 6-month Smart Nurture AI keeps following up with local, personalized messages instead of letting the contact sit cold."], ["Book", "When intent comes back, FollowUpHub routes the lead to booking, creates the calendar event, and sends appointment reminders."]];
@@ -14,6 +14,7 @@ const faqItems = [["Is this just another CRM?", "No. A typical CRM gives you a p
 const finalCtaSteps = ["Lead captured", "AI responds", "Nurture runs", "Appointment booked"];
 const footerCompanyName = "AI Vaani Technology Corp.";
 const footerEmail = "info@followuphub.ai";
+const footerSupportEmail = "support@followuphub.ai";
 const footerLegal = "\u00A9 2026 AI Vaani Technology Corp. \u00B7 Follow Up Hub Real Estate CRM \u00B7 All Rights Reserved.";
 const paymentLinks = {
   advancedMonthly: "https://api.followuphub.ai/payment-link/6a50b8cdc981f3feae6e866c",
@@ -28,15 +29,36 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
   const displayPeriod = billing === "annual" ? "/year" : "/month";
   const billingNote = billing === "annual" ? "14-day free trial - yearly billing includes 2 months free" : "14-day free trial - monthly billing";
   const advancedBillingNote = billing === "annual" ? "14-day free trial - yearly billing includes 2 months free - $299 one-time setup - white-glove onboarding" : "14-day free trial - $299 one-time setup - white-glove onboarding";
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > 480);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return <div className="min-h-screen w-full bg-[#FAFAF7] text-[#0E1116]">
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-6">
-        <img className="h-10 w-auto object-contain" src="https://storage.googleapis.com/storage.magicpath.ai/component-assets/413863639787921408/415333103943446528/cc7cbfdae14a23b26f2da7b04f45028c60b97f5f22767597aea446dc5226a510.jpg" alt="FollowUpHub" />
-        <div className="hidden items-center gap-8 text-sm font-medium text-[#5B6470] md:flex">
-          <span>The Gap</span><span>How It Works</span><span>Features</span><span>Pricing</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <a href="https://app.followuphub.ai/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#ECEBE6] bg-white px-5 py-3 text-sm font-semibold text-[#0E1116] transition hover:border-[#BFD0FF] hover:text-[#1F5FFF] active:scale-[0.98]">Sign In</a>
-          <a href="#pricing" className="rounded-full bg-[#1F5FFF] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1749CC] active:scale-[0.98]">Get Started</a>
+      <nav className="sticky top-0 z-50 w-full border-b border-[#ECEBE6] bg-[#FAFAF7]/85 backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-6">
+          <a href="/" onClick={e => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        }} className="flex items-center">
+            <img className="h-10 w-auto object-contain" src="https://storage.googleapis.com/storage.magicpath.ai/component-assets/413863639787921408/415333103943446528/cc7cbfdae14a23b26f2da7b04f45028c60b97f5f22767597aea446dc5226a510.jpg" alt="FollowUpHub" />
+          </a>
+          <div className="hidden items-center gap-8 text-sm font-medium text-[#5B6470] md:flex">
+            <a href="#the-gap" className="transition hover:text-[#1F5FFF]">The Gap</a>
+            <a href="#how-it-works" className="transition hover:text-[#1F5FFF]">How It Works</a>
+            <a href="#features" className="transition hover:text-[#1F5FFF]">Features</a>
+            <a href="#pricing" className="transition hover:text-[#1F5FFF]">Pricing</a>
+          </div>
+          <div className="flex items-center gap-3">
+            <a href="https://app.followuphub.ai/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#ECEBE6] bg-white px-5 py-3 text-sm font-semibold text-[#0E1116] transition hover:border-[#BFD0FF] hover:text-[#1F5FFF] active:scale-[0.98]">Sign In</a>
+            <a href="#pricing" className="rounded-full bg-[#1F5FFF] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1749CC] active:scale-[0.98]">Get Started</a>
+          </div>
         </div>
       </nav>
 
@@ -86,7 +108,7 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-[1.08fr_0.92fr]">
+        <section id="the-gap" className="mx-auto grid max-w-7xl scroll-mt-24 gap-12 px-5 py-24 lg:grid-cols-[1.08fr_0.92fr]">
           <div>
             <p className="font-bold text-[#1F5FFF]">The follow-up gap</p>
             <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">The lead is not lost at capture. It is lost in the minutes and months after.</h2>
@@ -112,7 +134,7 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[#FAFAF7] py-24">
+        <section id="how-it-works" className="relative scroll-mt-24 overflow-hidden bg-[#FAFAF7] py-24">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,#E8EEFF,rgba(250,250,247,0))]" />
           <div className="mx-auto max-w-7xl px-5">
             <div className="mx-auto max-w-3xl text-center">
@@ -172,7 +194,7 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
           </div>
         </section>
 
-        <section className="relative overflow-hidden py-24">
+        <section id="features" className="relative scroll-mt-24 overflow-hidden py-24">
           <img className="absolute inset-0 h-full w-full scale-105 object-cover object-[64%_48%] opacity-[0.58] blur-[0.5px]" src="https://storage.googleapis.com/storage.magicpath.ai/component-assets/413863639787921408/414756121023234048/23c8b7a80340e453ecd7eb239ebfca88834d3a92b44e71a41d1b15ab1b913faf.png" alt="Real estate team reviewing work together in a bright office" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAF7]/92 via-[#FAFAF7]/72 to-[#FAFAF7]/42" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAF7]/85 via-transparent to-[#FAFAF7]/82" />
@@ -287,7 +309,7 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
           </div>
         </section>
 
-        <section id="pricing" className="relative overflow-hidden px-5 py-24">
+        <section id="pricing" className="relative scroll-mt-24 overflow-hidden px-5 py-24">
           <div className="absolute inset-0 bg-[#E8EEFF]" />
           <div className="pricing-beam absolute left-1/2 top-0 h-full w-[42rem] -translate-x-1/2 bg-white/60" />
           <div className="relative mx-auto max-w-7xl text-center">
@@ -418,11 +440,24 @@ export const HomepageDirectionAPremiumCleanSaaS = () => {
                     <a href="/terms-of-service" className="text-sm font-semibold text-[#5B6470] transition hover:text-[#1F5FFF]">Terms of Service</a>
                   </div>
                 </div>
-                <p className="max-w-2xl text-sm leading-6 text-[#5B6470] md:text-right">{footerLegal}</p>
+                <div className="max-w-2xl md:text-right">
+                  <p className="text-sm leading-6 text-[#5B6470]">For any support, connect <a href={`mailto:${footerSupportEmail}`} className="font-semibold text-[#1F5FFF] transition hover:text-[#1749CC]">{footerSupportEmail}</a></p>
+                  <p className="mt-2 text-sm leading-6 text-[#5B6470]">{footerLegal}</p>
+                </div>
               </div>
             </div>
           </div>
         </footer>
       </main>
+
+      <button type="button" onClick={() => window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })} aria-label="Back to top" className={`fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-[#1F5FFF] text-white shadow-[0_16px_48px_rgba(14,17,22,0.18)] transition duration-300 hover:-translate-y-1 hover:bg-[#1749CC] active:scale-[0.98] ${showBackToTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+          <path d="M12 19V5" />
+          <path d="M5 12l7-7 7 7" />
+        </svg>
+      </button>
     </div>;
 };
